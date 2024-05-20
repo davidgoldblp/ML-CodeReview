@@ -45,3 +45,12 @@ member.ProgramEnrollments = new List<ProgramEnrollment>
 };
 
 member.MemberMeetingChanges = new List<MemberMeetingChange>() { };
+
+var validator = new InterviewProject.Validation.Validator();
+var statusMessages = validator.GetValidationErrorsForMemberStatus(member, memberID);
+foreach (var status in statusMessages)
+{
+    Console.Write($"Error present with member:{memberID} | {status} {Environment.NewLine}");
+}
+
+Console.WriteLine("Validation Checker Complete");
